@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Sistema simples para registrar e acompanhar a triagem técnica de computadores.">
+  <title>Triagem de Computadores</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="script.js" defer></script>
+</head>
+<body>
+  <header class="topbar">
+    <div><p class="eyebrow">LABORATÓRIO • CONTROLE TÉCNICO</p><h1>Triagem de Computadores</h1>
+      <p class="subtitle">Registre desktops, notebooks, mini PCs e all-in-ones, confira os testes e acompanhe o resultado.</p></div>
+    <span class="status-chip">Versão 1.0</span>
+  </header>
+  <main class="container">
+    <section class="summary" aria-label="Resumo da triagem">
+      <article><span>Total cadastrados</span><strong id="total">0</strong></article>
+      <article><span>Aprovados</span><strong id="approved">0</strong></article>
+      <article><span>Com pendências</span><strong id="pending">0</strong></article>
+    </section>
+    <section class="panel">
+      <div class="section-heading"><div><p class="eyebrow">NOVO REGISTRO</p><h2>Identificação do equipamento</h2></div></div>
+      <form id="triage-form">
+        <div class="form-grid">
+          <label>Patrimônio / identificação<input name="asset" required placeholder="Ex.: MPC-001"></label>
+          <label>Fabricante e modelo<input name="model" required placeholder="Ex.: Dell OptiPlex 3070 Micro / Lenovo ThinkCentre"></label>
+          <label>Processador<input name="cpu" placeholder="Ex.: Intel Core i5-9500T"></label>
+          <label>Memória RAM<input name="ram" placeholder="Ex.: 8 GB DDR4"></label>
+          <label>Armazenamento<input name="storage" placeholder="Ex.: SSD NVMe 256 GB"></label>
+          <label>Técnico responsável<input name="technician" placeholder="Nome do técnico"></label>
+        </div>
+        <fieldset><legend>Checklist de testes</legend>
+          <div class="checks">
+            <label><input type="checkbox" name="power"> Liga e permanece ligado</label>
+            <label><input type="checkbox" name="bios"> Acessa BIOS/UEFI</label>
+            <label><input type="checkbox" name="ramTest"> Memória RAM testada</label>
+            <label><input type="checkbox" name="disk"> SSD/HD reconhecido e testado</label>
+            <label><input type="checkbox" name="video"> Saída de vídeo testada</label>
+            <label><input type="checkbox" name="network"> Rede testada</label>
+            <label><input type="checkbox" name="usb"> Portas USB testadas</label>
+          </div>
+        </fieldset>
+        <label>Observações técnicas<textarea name="notes" rows="3" placeholder="Descreva defeitos, peças ausentes ou procedimentos realizados..."></textarea></label>
+        <div class="form-actions"><button class="primary" type="submit">Salvar triagem</button><button class="secondary" type="reset">Limpar formulário</button></div>
+      </form>
+    </section>
+    <section class="panel">
+      <div class="section-heading list-heading"><div><p class="eyebrow">HISTÓRICO</p><h2>Equipamentos triados</h2></div>
+        <input id="search" class="search" type="search" placeholder="Buscar por patrimônio ou modelo..." aria-label="Buscar equipamento">
+      </div>
+      <div id="records" class="records"><p class="empty">Nenhum equipamento cadastrado ainda.</p></div>
+    </section>
+    <footer>Projeto acadêmico • Os registros ficam salvos neste navegador.</footer>
+  </main>
+</body>
+</html>
